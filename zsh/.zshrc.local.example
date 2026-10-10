@@ -1,0 +1,5 @@
+# Local environment variables & secrets (NOT committed to git)
+# Copy this file to ~/.zshrc.local and fill in your keys:
+#
+# export OPENAI_API_KEY_GEMINI="your-api-key-here"
+# export ANTHROPIC_API_KEY="your-api-key-here"

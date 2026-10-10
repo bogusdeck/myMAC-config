@@ -1,0 +1,269 @@
+# ==============================================================================
+# AeroSpace Configuration - Arch Hyprland Style
+# ==============================================================================
+# Hyprland-inspired tiling window manager setup for macOS.
+# - Mod Key: Alt (Option) — behaves like $mainMod (Super) on Linux
+# - Hyprland keybindings (HJKL / Arrows / Workspaces 1-10 / Scratchpad)
+# - Hyprland-style gaps & focus-follows-mouse
+# - Window rules for automatic floating & workspace routing
+# ==============================================================================
+
+config-version = 2
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Automatically reload config on change
+auto-reload-config = true
+
+# Commands to run after AeroSpace startup
+after-startup-command = []
+
+# Tree Normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Layout Defaults
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+accordion-padding = 30
+
+# Mouse behavior (Hyprland follow_mouse = 1)
+focus-follows-mouse.enabled = true
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Unhide macOS hidden apps automatically
+automatically-unhide-macos-hidden-apps = true
+
+# Key mapping layout
+key-mapping.preset = 'qwerty'
+
+# ==============================================================================
+# Workspaces (Hyprland 1-10 + S for Scratchpad)
+# ==============================================================================
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "S"]
+
+# ==============================================================================
+# Gaps (Hyprland Aesthetic)
+# ==============================================================================
+gaps.inner.horizontal = 4
+gaps.inner.vertical   = 4
+gaps.outer.left       = 4
+gaps.outer.bottom     = 4
+gaps.outer.top        = 4
+gaps.outer.right      = 4
+
+# ==============================================================================
+# Main Keybindings ($mainMod = Alt / Option)
+# ==============================================================================
+[mode.main.binding]
+
+    # --- Application Launchers (Hyprland style) ---
+    # Super+Return / Super+Q / Super+T: Terminal (kitty)
+    alt-enter = 'exec-and-forget open -n -a /Applications/kitty.app'
+    alt-q     = 'exec-and-forget open -n -a /Applications/kitty.app'
+    alt-t     = 'exec-and-forget open -n -a /Applications/kitty.app'
+
+    # Super+B: Web Browser (Zen Browser - Jump to Workspace 2 & Launch/Focus)
+    alt-b     = ['workspace 2', 'exec-and-forget open -a /Applications/Zen.app']
+
+    # Super+E: File Manager (Finder - Open new window to Home)
+    alt-e     = 'exec-and-forget open /Users/bogusdeck'
+
+    # Super+D: App Launcher (Raycast if installed, or Launchpad)
+    alt-d     = 'exec-and-forget open -a Raycast 2>/dev/null || open -a Launchpad'
+
+    # --- Window Management ---
+    # Super+C: Close window (killactive)
+    alt-c     = 'close --quit-if-last-window'
+
+    # Super+V / Super+Space: Toggle Floating / Tiling
+    alt-v     = 'layout floating tiling'
+    alt-space = 'layout floating tiling'
+
+    # Super+F: Fullscreen Toggle
+    alt-f     = 'fullscreen'
+
+    # Super+P: Toggle Split / Tiles orientation (Horizontal <-> Vertical)
+    alt-p     = 'layout tiles horizontal vertical'
+
+    # Super+M: Toggle Monocle / Accordion
+    alt-m     = 'layout accordion horizontal vertical'
+
+    # --- Vim Focus Navigation (Super + HJKL / Arrows) ---
+    alt-h     = 'focus left'
+    alt-j     = 'focus down'
+    alt-k     = 'focus up'
+    alt-l     = 'focus right'
+    alt-left  = 'focus left'
+    alt-down  = 'focus down'
+    alt-up    = 'focus up'
+    alt-right = 'focus right'
+
+    # --- Window Movement (Super + Shift + HJKL / Arrows) ---
+    alt-shift-h     = 'move left'
+    alt-shift-j     = 'move down'
+    alt-shift-k     = 'move up'
+    alt-shift-l     = 'move right'
+    alt-shift-left  = 'move left'
+    alt-shift-down  = 'move down'
+    alt-shift-up    = 'move up'
+    alt-shift-right = 'move right'
+
+    # --- Workspaces Switch (Super + [1-9, 0]) ---
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    # --- Move Window to Workspace (Super + Shift + [1-9, 0]) ---
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 10'
+
+    # --- Scratchpad / Special Workspace (Hyprland special:magic) ---
+    alt-s       = 'workspace S'
+    alt-shift-s = 'move-node-to-workspace S'
+
+    # --- Workspace Cycling ---
+    # Super+Tab: Switch back and forth between previous and current workspace
+    alt-tab = 'workspace-back-and-forth'
+
+    # --- Multi-Monitor Controls ---
+    alt-leftSquareBracket       = 'focus-monitor prev'
+    alt-rightSquareBracket      = 'focus-monitor next'
+    alt-shift-leftSquareBracket = 'move-node-to-monitor --wrap-around prev'
+    alt-shift-rightSquareBracket= 'move-node-to-monitor --wrap-around next'
+
+    # --- Modes ---
+    # Super+R: Resize Submap
+    alt-r = 'mode resize'
+
+    # Super+Shift+R: Instant Config Reload
+    alt-shift-r = 'reload-config'
+
+    # Super+Shift+Semicolon: Service Mode (Tree management)
+    alt-shift-semicolon = 'mode service'
+
+# ==============================================================================
+# Resize Mode (Hyprland submap = resize)
+# ==============================================================================
+[mode.resize.binding]
+    h     = 'resize width -50'
+    j     = 'resize height -50'
+    k     = 'resize height +50'
+    l     = 'resize width +50'
+    left  = 'resize width -50'
+    down  = 'resize height -50'
+    up    = 'resize height +50'
+    right = 'resize width +50'
+    equal = ['balance-sizes', 'mode main']
+    enter = 'mode main'
+    esc   = 'mode main'
+
+# ==============================================================================
+# Service Mode (Container Splitting & Advanced Actions)
+# ==============================================================================
+[mode.service.binding]
+    esc       = ['reload-config', 'mode main']
+    r         = ['flatten-workspace-tree', 'mode main']
+    f         = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    # Join containers into split groups
+    h         = ['join-with left', 'mode main']
+    j         = ['join-with down', 'mode main']
+    k         = ['join-with up', 'mode main']
+    l         = ['join-with right', 'mode main']
+
+# ==============================================================================
+# Window Rules (Hyprland windowrulev2)
+# ==============================================================================
+
+# --- Float Dialogs & Utilities ---
+[[on-window-detected]]
+if.app-id = 'org.p0deje.Maccy'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.archiveutility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'io.github.keycastr'
+run = 'layout floating'
+
+# --- Workspace Assignments ---
+# Workspace 1: Code & Terminals
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace 1'
+
+# Workspace 2: Web Browsing
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace 2'
+
+# Workspace 3: Knowledge Base / Notes
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace 3'
+
+# Workspace 4: Communication
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'move-node-to-workspace 4'
+
+# Workspace 5: Media
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 5'
