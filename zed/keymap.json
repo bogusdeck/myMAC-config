@@ -1,0 +1,87 @@
+[
+  // -------------------------------------------------------------
+  // Insert Mode Mappings
+  // -------------------------------------------------------------
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+
+  // -------------------------------------------------------------
+  // Normal Mode Leader & LSP Mappings (which-key popup enabled)
+  // -------------------------------------------------------------
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // Find & Files (Telescope style)
+      "space f f": "file_finder::Toggle",
+      "space f s": "pane::DeploySearch",
+      "space f r": "projects::OpenRecent",
+      "space /": "workspace::DeploySearch",
+      "space e": "project_panel::ToggleFocus",
+
+      // LSP / Code Actions & Diagnostics
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDeclaration",
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation",
+      "g t": "editor::GoToTypeDefinition",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+      "space c d": "diagnostics::Deploy",
+      "[ d": "editor::GoToDiagnostic",
+      "] d": "editor::GoToNextDiagnostic",
+
+      // Buffers & Tabs
+      "space b d": "pane::CloseActiveItem",
+      "space b o": "pane::CloseOtherItems",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "[ b": "pane::ActivatePreviousItem",
+      "] b": "pane::ActivateNextItem",
+
+      // Windows & Splits
+      "space w v": "pane::SplitRight",
+      "space w s": "pane::SplitDown",
+      "space w c": "pane::CloseActiveItem",
+      "ctrl-w v": "pane::SplitRight",
+      "ctrl-w s": "pane::SplitDown",
+      "ctrl-w c": "pane::CloseActiveItem",
+
+      // Docks / Panels
+      "space t": "workspace::ToggleBottomDock",
+      "space a": "assistant::ToggleFocus",
+      "space g g": "git_panel::ToggleFocus",
+      "space o": "outline_panel::ToggleFocus"
+    }
+  },
+
+  // -------------------------------------------------------------
+  // Global Workspace & Window Navigation (Ctrl-h/j/k/l)
+  // -------------------------------------------------------------
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "cmd-b": "workspace::ToggleRightDock",
+      "cmd-B": "workspace::ToggleLeftDock",
+      "cmd-M": "assistant::ToggleFocus"
+    }
+  },
+
+  // -------------------------------------------------------------
+  // Assistant / Selection Helpers
+  // -------------------------------------------------------------
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-l": "assistant::QuoteSelection"
+    }
+  }
+]

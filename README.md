@@ -14,6 +14,8 @@ Personal macOS dotfiles and workflow configuration tailored for an Arch + Hyprla
 | **`zsh/`** | `.zshrc` configuration with zplug, fzf, paths, and secret separation |
 | **`starship/`** | [Starship](https://starship.rs/) cross-shell prompt config |
 | **`git/`** | Global `.gitconfig` settings |
+| **`zed/`** | [Zed](https://zed.dev/) editor settings & keybindings |
+| **`ranger/`** | [Ranger](https://github.com/ranger/ranger) terminal file manager config |
 | **`Brewfile`** | Snapshot of all Homebrew formulae, casks (GUI apps), and taps |
 | **`install.sh`** | Automated symlinking script for setup on new systems |
 

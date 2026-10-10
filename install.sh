@@ -57,6 +57,19 @@ backup_if_exists ~/.gitconfig
 ln -sf "$DOTFILES_DIR/git/.gitconfig" ~/.gitconfig
 echo "✅ Git linked (~/.gitconfig)"
 
+# 7. Zed
+mkdir -p ~/.config/zed
+backup_if_exists ~/.config/zed/settings.json
+backup_if_exists ~/.config/zed/keymap.json
+ln -sf "$DOTFILES_DIR/zed/settings.json" ~/.config/zed/settings.json
+ln -sf "$DOTFILES_DIR/zed/keymap.json" ~/.config/zed/keymap.json
+echo "✅ Zed linked (~/.config/zed)"
+
+# 8. Ranger
+backup_if_exists ~/.config/ranger
+ln -sfn "$DOTFILES_DIR/ranger" ~/.config/ranger
+echo "✅ Ranger linked (~/.config/ranger)"
+
 echo ""
 echo "🎉 All dotfiles linked successfully!"
 echo "To install all Homebrew apps and dependencies, run:"

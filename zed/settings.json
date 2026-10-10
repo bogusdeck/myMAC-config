@@ -1,0 +1,126 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    /* Duplicated key auto-commented: "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    }
+  }, */
+    "diff_view_style": "unified",
+    "edit_predictions": {
+        "provider": "ollama"
+    },
+    "colorize_brackets": true,
+    "outline_panel": {
+        "dock": "left"
+    },
+    "collaboration_panel": {
+        "dock": "left"
+    },
+    "git_panel": {
+        "dock": "left"
+    },
+    "vim_mode": true,
+    "relative_line_numbers": true,
+    "cursor_blink": false,
+    "vertical_scroll_margin": 8,
+    "which_key": {
+        "enabled": true,
+        "delay_ms": 0
+    },
+    "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true
+    },
+    "format_on_save": "off",
+    "tab_size": 4,
+    "ui_font_size": 14,
+    "buffer_font_size": 15,
+    "theme": {
+        "mode": "system",
+        "light": "Ayu Light",
+        "dark": "Ayu Dark"
+    },
+    "project_panel": {
+        "dock": "left"
+    },
+    "terminal": {
+      "dock": "bottom",
+      "default_height": 320,
+      "copy_on_select": true,
+      "font_size": 11.0,
+      "line_height": "standard",
+      "alternate_scroll": "off",
+      "scroll_multiplier": 3.0,
+      "scrollbar": { "show": "always" }
+    },
+    "agent": {
+        "default_model": {
+            "provider": "ollama",
+            "model": "qwen2.5-coder:7b",
+            "enable_thinking": false
+        },
+        "dock": "right",
+        "default_width": 640
+    },
+    "autosave": "on_focus_change",
+    "hide_mouse": "on_typing",
+    "scrollbar": {
+        "axes": {
+            "horizontal": false
+        }
+    },
+    "show_whitespaces": "trailing",
+    "preferred_line_length": 80,
+    "toolbar": {
+        "breadcrumbs": false,
+        "quick_actions": false,
+        "selections_menu": false,
+        "agent_review": false,
+        "code_actions": false
+    },
+    "title_bar": {
+        "show_sign_in": false,
+        "show_project_items": false,
+        "show_onboarding_banner": false
+    },
+    "soft_wrap": "editor_width",
+    "languages": {
+        "Go": {
+            "format_on_save": "on",
+            "lsp": {
+                "gopls": {
+                    "ui.completion": true,
+                    "usePlaceholders": true
+                }
+            }
+        },
+        "C++": {
+            "format_on_save": "on",
+            "lsp": {
+                "clangd": {}
+            }
+        },
+        "Python": {
+            "format_on_save": "on",
+            "lsp": {
+                "pyright": {}
+            }
+        },
+        "Java": {
+            "format_on_save": "on",
+            "lsp": {
+                "jdtls": {}
+            }
+        }
+    },
+    "remove_trailing_whitespace_on_save": false,
+}
